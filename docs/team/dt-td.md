@@ -19,4 +19,3 @@ Given below are my contributions to the project:
     * Developer Guide:
         * Contributed to the documentation in the following areas:
             * Target user profile, Value proposition, User stories, Use cases, Non-functional requirements, Glossary
-          
