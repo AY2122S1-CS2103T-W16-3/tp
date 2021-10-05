@@ -28,6 +28,8 @@ public class PersonCard extends UiPart<Region> {
     private HBox cardPane;
     @FXML
     private Label name;
+    @FXML
+    private Label id;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
