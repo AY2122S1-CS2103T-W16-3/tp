@@ -208,7 +208,7 @@ Example:
 
 ### Viewing a lesson : `view -l`
 
-Displays the specified lesson’s name, capacity, price and timing, along with names of students who have the specified lesson.
+Displays the specified lesson’s name, capacity, price and details, along with names of students who have the specified lesson.
 
 Format: `view -l LESSON_INDEX`
 
@@ -302,16 +302,18 @@ Examples:
 
 Adds a new lesson to TutorAid.
 
-Format: `add -l n/LESSON_NAME [c/LESSON_CAPACITY] [p/LESSON_PRICE] [t/LESSON_TIMING]`
+Format: `add -l n/LESSON_NAME [c/LESSON_CAPACITY] [p/LESSON_PRICE] [r/LESSON_REMARK]`
 
 * The lesson name should only contain alphanumeric characters and spaces.
+* Duplicate lessons cannot be added. A lesson counts as a duplicate if it has the same lesson name as an existing lesson.
 * If provided, the lesson's capacity must be a **positive integer** 1, 2, 3, …
 * If provided, the lesson's price must be a **non-negative number** with either 0 or 2 decimal places. Examples of a valid price are `80` and `85.50`.
+* If provided, the lesson's remark must only include **alphanumeric characters, forward slashes, hyphens and spaces**.
 
 Examples:
-* `add -l n/P6 Maths c/20 p/80 t/Monday 1200-1400`
+* `add -l n/P6 Maths c/20 p/80 r/Every Monday from 1200-1400`
 
-> :bulb: The lesson's capacity, price and timing are optional details for tutors to include.
+> :bulb: The lesson's capacity, price and remark are optional details for tutors to include.
 
 ### Deleting a lesson : `del -l`
 
@@ -330,11 +332,12 @@ Examples:
 
 Edits the specified lesson by updating its fields
 
-Format: `edit -l LESSON_INDEX [n/LESSON_NAME] [c/LESSON_CAPACITY] [p/LESSON_PRICE] [t/LESSON_TIMING]`
+Format: `edit -l LESSON_INDEX [n/LESSON_NAME] [c/LESSON_CAPACITY] [p/LESSON_PRICE] [r/LESSON_REMARK]`
 
 * If provided, the lesson name should only contain alphanumeric characters and spaces.
 * If provided, the lesson's capacity must be a **positive integer** 1, 2, 3, …
 * If provided, the lesson's price must be a **non-negative number** with either 0 or 2 decimal places. Examples of a valid price are `80` and `85.50`.
+* If provided, the lesson's remark must only include **alphanumeric characters, forward slashes, hyphens and spaces**.
 * At least 1 out of 4 optional fields must be provided.
 
 Examples:
@@ -411,9 +414,9 @@ Action | Format, Examples
 **Delete Progress** | `del -p STUDENT_INDEX` <br> e.g., `del -p 2`
 **Viewing a student** | `view -s STUDENT_INDEX`<br> e.g., `view -s 2`
 **Viewing a lesson** | `view -l LESSON_INDEX`<br> e.g., `view -l 2`
-**Add lesson** | `add -l n/P6 Maths c/20 p/80 t/Monday 1200-1400`<br>e.g.,`add -l n/P6 Maths c/20 p/80 t/Monday 1200-1400`
+**Add lesson** | `add -l n/LESSON_NAME [c/LESSON_CAPACITY] [p/LESSON_PRICE] [r/LESSON_REMARK]`<br>e.g.,`add -l n/P6 Maths c/20 p/80 r/Every Monday from 1200-1400`
 **Delete lesson** | `del -l LESSON_INDEX` <br>e.g.,`del -l 3`
-**Edit lesson** | `edit -l LESSON_INDEX [n/LESSON_NAME] [c/LESSON_CAPACITY] [p/LESSON_PRICE] [t/LESSON_TIMING]`<br>e.g., `edit -l c/20 p/80`
+**Edit lesson** | `edit -l LESSON_INDEX [n/LESSON_NAME] [c/LESSON_CAPACITY] [p/LESSON_PRICE] [r/LESSON_REMARK]`<br>e.g., `edit -l c/20 p/80`
 **Add students to lessons** | `add -sl s/STUDENT_INDEX... l/LESSON_INDEX...`<br>e.g.,`add -sl s/1 2 3 l/1 2`
 **Delete students from lessons** | `del -sl s/STUDENT_INDEX... l/LESSON_INDEX...`<br>e.g.,`del -sl s/2 3 l/1 2 3`
 **Find student** | `find -s KEYWORD [MORE_KEYWORDS]`<br>e.g., `find -s roy`
