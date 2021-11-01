@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_CAPACITY;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_NAME;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_PRICE;
-import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_TIMING;
+import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_REMARK;
 import static tutoraid.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
 import java.util.List;
@@ -19,8 +19,8 @@ import tutoraid.model.lesson.Capacity;
 import tutoraid.model.lesson.Lesson;
 import tutoraid.model.lesson.LessonName;
 import tutoraid.model.lesson.Price;
+import tutoraid.model.lesson.Remark;
 import tutoraid.model.lesson.Students;
-import tutoraid.model.lesson.Timing;
 import tutoraid.model.student.Student;
 
 public class EditLessonCommand extends EditCommand {
@@ -33,12 +33,12 @@ public class EditLessonCommand extends EditCommand {
             + "Parameters: INDEX (must be a positive integer) "
             + PREFIX_LESSON_NAME + "LESSON NAME "
             + PREFIX_LESSON_PRICE + "LESSON PRICE (non-negative number with 0 or 2 decimal places) "
-            + PREFIX_LESSON_TIMING + "LESSON TIMING (any format) "
+            + PREFIX_LESSON_REMARK + "LESSON REMARK (any format) "
             + PREFIX_LESSON_CAPACITY + "LESSON CAPACITY (positive integer) "
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_LESSON_NAME + "Math 1 "
             + PREFIX_LESSON_PRICE + "19.90 "
-            + PREFIX_LESSON_TIMING + "10.00 AM to 12.00 PM every Monday "
+            + PREFIX_LESSON_REMARK + "10.00 AM to 12.00 PM every Monday "
             + PREFIX_LESSON_CAPACITY + "10 ";
 
     public static final String MESSAGE_EDIT_LESSON_SUCCESS = "Edited Lesson: %1$s";
@@ -95,10 +95,10 @@ public class EditLessonCommand extends EditCommand {
         LessonName updatedLessonName = editLessonDescriptor.getLessonName().orElse(lessonToEdit.getLessonName());
         Capacity updatedCapacity = editLessonDescriptor.getCapacity().orElse(lessonToEdit.getCapacity());
         Price updatedPrice = editLessonDescriptor.getPrice().orElse(lessonToEdit.getPrice());
-        Timing updatedTiming = editLessonDescriptor.getTiming().orElse(lessonToEdit.getTiming());
+        Remark updatedRemark = editLessonDescriptor.getRemark().orElse(lessonToEdit.getRemark());
         Students students = lessonToEdit.getStudents();
 
-        return new Lesson(updatedLessonName, updatedCapacity, updatedPrice, students, updatedTiming);
+        return new Lesson(updatedLessonName, updatedCapacity, updatedPrice, students, updatedRemark);
     }
 
     @Override
@@ -125,7 +125,7 @@ public class EditLessonCommand extends EditCommand {
      */
     public static class EditLessonDescriptor {
         private LessonName lessonName;
-        private Timing timing;
+        private Remark remark;
         private Price price;
         private Capacity capacity;
 
@@ -137,7 +137,7 @@ public class EditLessonCommand extends EditCommand {
          */
         public EditLessonDescriptor(EditLessonDescriptor toCopy) {
             setLessonName(toCopy.lessonName);
-            setTiming(toCopy.timing);
+            setRemark(toCopy.remark);
             setPrice(toCopy.price);
             setCapacity(toCopy.capacity);
         }
@@ -146,7 +146,7 @@ public class EditLessonCommand extends EditCommand {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(lessonName, timing, price, capacity);
+            return CollectionUtil.isAnyNonNull(lessonName, remark, price, capacity);
         }
 
         public void setLessonName(LessonName lessonName) {
@@ -157,12 +157,12 @@ public class EditLessonCommand extends EditCommand {
             return Optional.ofNullable(lessonName);
         }
 
-        public void setTiming(Timing timing) {
-            this.timing = timing;
+        public void setRemark(Remark remark) {
+            this.remark = remark;
         }
 
-        public Optional<Timing> getTiming() {
-            return Optional.ofNullable(timing);
+        public Optional<Remark> getRemark() {
+            return Optional.ofNullable(remark);
         }
 
         public void setPrice(Price price) {
@@ -198,7 +198,7 @@ public class EditLessonCommand extends EditCommand {
             EditLessonDescriptor e = (EditLessonDescriptor) other;
             EditLessonDescriptor otherDescriptor = (EditLessonDescriptor) other;
             return otherDescriptor.getLessonName().equals(getLessonName())
-                    && otherDescriptor.getTiming().equals(getTiming())
+                    && otherDescriptor.getRemark().equals(getRemark())
                     && otherDescriptor.getPrice().equals(getPrice())
                     && otherDescriptor.getCapacity().equals(getCapacity());
         }

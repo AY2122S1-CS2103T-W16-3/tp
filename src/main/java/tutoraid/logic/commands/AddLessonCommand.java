@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_CAPACITY;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_NAME;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_PRICE;
-import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_TIMING;
+import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_REMARK;
 
 import tutoraid.logic.commands.exceptions.CommandException;
 import tutoraid.model.Model;
@@ -22,12 +22,12 @@ public class AddLessonCommand extends AddCommand {
             + PREFIX_LESSON_NAME + "LESSON NAME "
             + PREFIX_LESSON_CAPACITY + "LESSON CAPACITY "
             + PREFIX_LESSON_PRICE + "LESSON PRICE "
-            + PREFIX_LESSON_TIMING + "LESSON TIMING "
+            + PREFIX_LESSON_REMARK + "LESSON REMARK "
             + "Example: " + COMMAND_FLAG + " "
             + PREFIX_LESSON_NAME + "Maths 1 "
             + PREFIX_LESSON_CAPACITY + "50 "
             + PREFIX_LESSON_PRICE + "100 "
-            + PREFIX_LESSON_TIMING + "Mon 1000-1200 ";
+            + PREFIX_LESSON_REMARK + "Mon 1000-1200 ";
 
     public static final String MESSAGE_SUCCESS = "New lesson added: %1$s";
     public static final String MESSAGE_DUPLICATE_LESSON = "This lesson already exists in TutorAid";

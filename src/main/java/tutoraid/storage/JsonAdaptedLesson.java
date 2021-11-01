@@ -10,8 +10,8 @@ import tutoraid.model.lesson.Capacity;
 import tutoraid.model.lesson.Lesson;
 import tutoraid.model.lesson.LessonName;
 import tutoraid.model.lesson.Price;
+import tutoraid.model.lesson.Remark;
 import tutoraid.model.lesson.Students;
-import tutoraid.model.lesson.Timing;
 import tutoraid.model.student.Student;
 
 /**
@@ -25,7 +25,7 @@ public class JsonAdaptedLesson {
     private final String capacity;
     private final String price;
     private final ArrayList<JsonAdaptedStudent> students;
-    private final String timing;
+    private final String remark;
 
     /**
      * Constructs a {@code JsonAdaptedLesson} with the given lesson details.
@@ -34,12 +34,12 @@ public class JsonAdaptedLesson {
     public JsonAdaptedLesson(
             @JsonProperty("lessonName") String lessonName, @JsonProperty("capacity") String capacity,
             @JsonProperty("price") String price, @JsonProperty("students") ArrayList<JsonAdaptedStudent> students,
-            @JsonProperty("timing") String timing) {
+            @JsonProperty("remark") String remark) {
         this.lessonName = lessonName;
         this.capacity = capacity;
         this.price = price;
         this.students = students;
-        this.timing = timing;
+        this.remark = remark;
     }
 
     /**
@@ -54,7 +54,7 @@ public class JsonAdaptedLesson {
             jsonAdaptedStudents.add(new JsonAdaptedStudent(student));
         }
         students = jsonAdaptedStudents;
-        timing = source.getTiming().timing;
+        remark = source.getRemark().remark;
     }
 
     /**
@@ -92,15 +92,15 @@ public class JsonAdaptedLesson {
         }
         final Students modelLessonStudents = new Students(lessonStudents);
 
-        if (timing == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Timing.class.getSimpleName()));
+        if (remark == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
         }
-        if (!timing.equals("") && !Timing.isValidTiming(timing)) {
-            throw new IllegalValueException(Timing.MESSAGE_CONSTRAINTS);
+        if (!remark.equals("") && !Remark.isValidRemark(remark)) {
+            throw new IllegalValueException(Remark.MESSAGE_CONSTRAINTS);
         }
-        final Timing modelLessonTiming = new Timing(timing);
+        final Remark modelLessonRemark = new Remark(remark);
 
         return new Lesson(modelLessonName, modelLessonCapacity, modelLessonPrice,
-                modelLessonStudents, modelLessonTiming);
+                modelLessonStudents, modelLessonRemark);
     }
 }

@@ -6,20 +6,20 @@ import static tutoraid.logic.commands.CommandTestUtil.CAPACITY_DESC_SCIENCE;
 import static tutoraid.logic.commands.CommandTestUtil.INVALID_CAPACITY_DESC;
 import static tutoraid.logic.commands.CommandTestUtil.INVALID_LESSON_NAME_DESC;
 import static tutoraid.logic.commands.CommandTestUtil.INVALID_PRICE_DESC;
-import static tutoraid.logic.commands.CommandTestUtil.INVALID_TIMING_DESC;
+import static tutoraid.logic.commands.CommandTestUtil.INVALID_REMARK_DESC;
 import static tutoraid.logic.commands.CommandTestUtil.LESSON_NAME_DESC_MATH;
 import static tutoraid.logic.commands.CommandTestUtil.LESSON_NAME_DESC_SCIENCE;
 import static tutoraid.logic.commands.CommandTestUtil.PRICE_DESC_MATH;
 import static tutoraid.logic.commands.CommandTestUtil.PRICE_DESC_SCIENCE;
-import static tutoraid.logic.commands.CommandTestUtil.TIMING_DESC_MATH;
-import static tutoraid.logic.commands.CommandTestUtil.TIMING_DESC_SCIENCE;
+import static tutoraid.logic.commands.CommandTestUtil.REMARK_DESC_MATH;
+import static tutoraid.logic.commands.CommandTestUtil.REMARK_DESC_SCIENCE;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_CAPACITY_MATHS_TWO;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_CAPACITY_SCIENCE_TWO;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_LESSON_NAME_MATHS_TWO;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_LESSON_NAME_SCIENCE_TWO;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_PRICE_MATHS_TWO;
-import static tutoraid.logic.commands.CommandTestUtil.VALID_TIMING_MATHS_TWO;
-import static tutoraid.logic.commands.CommandTestUtil.VALID_TIMING_SCIENCE_TWO;
+import static tutoraid.logic.commands.CommandTestUtil.VALID_REMARK_MATHS_TWO;
+import static tutoraid.logic.commands.CommandTestUtil.VALID_REMARK_SCIENCE_TWO;
 import static tutoraid.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static tutoraid.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static tutoraid.testutil.TypicalIndexes.INDEX_FIRST_ITEM;
@@ -33,7 +33,7 @@ import tutoraid.logic.commands.EditLessonCommand.EditLessonDescriptor;
 import tutoraid.model.lesson.Capacity;
 import tutoraid.model.lesson.LessonName;
 import tutoraid.model.lesson.Price;
-import tutoraid.model.lesson.Timing;
+import tutoraid.model.lesson.Remark;
 import tutoraid.testutil.EditLessonDescriptorBuilder;
 
 public class EditLessonCommandParserTest {
@@ -74,16 +74,16 @@ public class EditLessonCommandParserTest {
     public void parse_invalidValue_failure() {
         assertParseFailure(parser, "1" + INVALID_LESSON_NAME_DESC, LessonName.MESSAGE_CONSTRAINTS);
         assertParseFailure(parser, "1" + INVALID_CAPACITY_DESC, Capacity.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + INVALID_TIMING_DESC, Timing.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + INVALID_REMARK_DESC, Remark.MESSAGE_CONSTRAINTS);
         assertParseFailure(parser, "1" + INVALID_PRICE_DESC, Price.MESSAGE_CONSTRAINTS);
 
-        // invalid capacity followed by valid timing
-        assertParseFailure(parser, "1" + INVALID_CAPACITY_DESC + TIMING_DESC_MATH,
+        // invalid capacity followed by valid remark
+        assertParseFailure(parser, "1" + INVALID_CAPACITY_DESC + REMARK_DESC_MATH,
                 Capacity.MESSAGE_CONSTRAINTS);
 
-        // valid pricing followed by invalid timing
-        assertParseFailure(parser, "1" + PRICE_DESC_SCIENCE + INVALID_TIMING_DESC,
-                Timing.MESSAGE_CONSTRAINTS);
+        // valid pricing followed by invalid remark
+        assertParseFailure(parser, "1" + PRICE_DESC_SCIENCE + INVALID_REMARK_DESC,
+                Remark.MESSAGE_CONSTRAINTS);
     }
 
     @Test
@@ -93,13 +93,13 @@ public class EditLessonCommandParserTest {
                 + LESSON_NAME_DESC_MATH
                 + CAPACITY_DESC_MATH
                 + PRICE_DESC_MATH
-                + TIMING_DESC_MATH;
+                + REMARK_DESC_MATH;
 
         EditLessonDescriptor descriptor = new EditLessonDescriptorBuilder()
                 .withLessonName(VALID_LESSON_NAME_MATHS_TWO)
                 .withCapacity(VALID_CAPACITY_MATHS_TWO)
                 .withPrice(VALID_PRICE_MATHS_TWO)
-                .withTiming(VALID_TIMING_MATHS_TWO)
+                .withRemark(VALID_REMARK_MATHS_TWO)
                 .build();
         EditLessonCommand expectedCommand = new EditLessonCommand(targetIndex, descriptor);
 
@@ -109,11 +109,11 @@ public class EditLessonCommandParserTest {
     @Test
     public void parse_someFieldsSpecified_success() {
         Index targetIndex = INDEX_FIRST_ITEM;
-        String userInput = targetIndex.getOneBased() + CAPACITY_DESC_SCIENCE + TIMING_DESC_MATH;
+        String userInput = targetIndex.getOneBased() + CAPACITY_DESC_SCIENCE + REMARK_DESC_MATH;
 
         EditLessonDescriptor descriptor = new EditLessonDescriptorBuilder()
                 .withCapacity(VALID_CAPACITY_SCIENCE_TWO)
-                .withTiming(VALID_TIMING_MATHS_TWO)
+                .withRemark(VALID_REMARK_MATHS_TWO)
                 .build();
         EditLessonCommand expectedCommand = new EditLessonCommand(targetIndex, descriptor);
 
@@ -139,10 +139,10 @@ public class EditLessonCommandParserTest {
         expectedCommand = new EditLessonCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
-        // timing
-        userInput = targetIndex.getOneBased() + TIMING_DESC_SCIENCE;
+        // remark
+        userInput = targetIndex.getOneBased() + REMARK_DESC_SCIENCE;
         descriptor = new EditLessonDescriptorBuilder()
-                .withTiming(VALID_TIMING_SCIENCE_TWO)
+                .withRemark(VALID_REMARK_SCIENCE_TWO)
                 .build();
         expectedCommand = new EditLessonCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
@@ -178,9 +178,9 @@ public class EditLessonCommandParserTest {
     public void parse_invalidValueFollowedByValidValue_success() {
         // no other valid values specified
         Index targetIndex = INDEX_FIRST_ITEM;
-        String userInput = targetIndex.getOneBased() + INVALID_TIMING_DESC + TIMING_DESC_MATH;
+        String userInput = targetIndex.getOneBased() + INVALID_REMARK_DESC + REMARK_DESC_MATH;
         EditLessonDescriptor descriptor = new EditLessonDescriptorBuilder()
-                .withTiming(VALID_TIMING_MATHS_TWO)
+                .withRemark(VALID_REMARK_MATHS_TWO)
                 .build();
         EditLessonCommand expectedCommand = new EditLessonCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
@@ -188,12 +188,12 @@ public class EditLessonCommandParserTest {
         // other valid values specified
         userInput = targetIndex.getOneBased()
                 + PRICE_DESC_MATH
-                + INVALID_TIMING_DESC
+                + INVALID_REMARK_DESC
                 + CAPACITY_DESC_MATH
-                + TIMING_DESC_MATH;
+                + REMARK_DESC_MATH;
         descriptor = new EditLessonDescriptorBuilder()
                 .withPrice(VALID_PRICE_MATHS_TWO)
-                .withTiming(VALID_TIMING_MATHS_TWO)
+                .withRemark(VALID_REMARK_MATHS_TWO)
                 .withCapacity(VALID_CAPACITY_MATHS_TWO)
                 .build();
         expectedCommand = new EditLessonCommand(targetIndex, descriptor);

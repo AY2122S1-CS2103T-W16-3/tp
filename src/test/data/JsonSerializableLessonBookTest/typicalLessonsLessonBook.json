@@ -13,7 +13,7 @@
       "hasPaid" : false,
       "lessons" : ["Maths 1", "Science 1"]
     } ],
-    "timing" : "1000-1200"
+    "remark" : "1000-1200"
   }, {
     "lessonName" : "Science 1",
     "capacity" : "50",
@@ -27,6 +27,6 @@
       "hasPaid" : false,
       "lessons" : ["Maths 1", "Science 1"]
     } ],
-    "timing" : "1400-1600"
+    "remark" : "1400-1600"
   } ]
 }

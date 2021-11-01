@@ -11,7 +11,7 @@ import tutoraid.commons.exceptions.IllegalValueException;
 import tutoraid.model.lesson.Capacity;
 import tutoraid.model.lesson.LessonName;
 import tutoraid.model.lesson.Price;
-import tutoraid.model.lesson.Timing;
+import tutoraid.model.lesson.Remark;
 import tutoraid.testutil.Assert;
 import tutoraid.testutil.TypicalLessons;
 
@@ -20,7 +20,7 @@ public class JsonAdaptedLessonTest {
     private static final String INVALID_LESSON_NAME = "M@ths 1";
     private static final String INVALID_LESSON_CAPACITY = "fifty";
     private static final String INVALID_LESSON_PRICE = "one hundred";
-    private static final String INVALID_LESSON_TIMING = "ten @m to twelve pm";
+    private static final String INVALID_LESSON_REMARK = "ten @m to twelve pm";
 
     private static final String VALID_LESSON_NAME = TypicalLessons.SCIENCE_ONE.getLessonName().toString();
     private static final String VALID_LESSON_CAPACITY = TypicalLessons.SCIENCE_ONE.getCapacity().toString();
@@ -28,7 +28,7 @@ public class JsonAdaptedLessonTest {
     private static final ArrayList<JsonAdaptedStudent> VALID_LESSON_STUDENTS =
             (ArrayList<JsonAdaptedStudent>) TypicalLessons.SCIENCE_ONE.getStudents().students.stream()
                     .map(JsonAdaptedStudent::new).collect(Collectors.toList());
-    private static final String VALID_LESSON_TIMING = TypicalLessons.SCIENCE_ONE.getTiming().toString();
+    private static final String VALID_LESSON_REMARK = TypicalLessons.SCIENCE_ONE.getRemark().toString();
 
     @Test
     public void toModelType_validLessonDetails_returnsLesson() throws Exception {
@@ -39,7 +39,7 @@ public class JsonAdaptedLessonTest {
     @Test
     public void toModelType_invalidLessonName_throwsIllegalValueException() {
         JsonAdaptedLesson lesson = new JsonAdaptedLesson(INVALID_LESSON_NAME, VALID_LESSON_CAPACITY,
-                VALID_LESSON_PRICE, VALID_LESSON_STUDENTS, VALID_LESSON_TIMING);
+                VALID_LESSON_PRICE, VALID_LESSON_STUDENTS, VALID_LESSON_REMARK);
 
         String expectedMessage = LessonName.MESSAGE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, lesson::toModelType);
@@ -48,7 +48,7 @@ public class JsonAdaptedLessonTest {
     @Test
     public void toModelType_nullLessonName_throwsIllegalValueException() {
         JsonAdaptedLesson lesson = new JsonAdaptedLesson(null, VALID_LESSON_CAPACITY,
-                VALID_LESSON_PRICE, VALID_LESSON_STUDENTS, VALID_LESSON_TIMING);
+                VALID_LESSON_PRICE, VALID_LESSON_STUDENTS, VALID_LESSON_REMARK);
 
         String expectedMessage = String.format(
                 JsonAdaptedLesson.MISSING_FIELD_MESSAGE_FORMAT, LessonName.class.getSimpleName());
@@ -58,7 +58,7 @@ public class JsonAdaptedLessonTest {
     @Test
     public void toModelType_invalidCapacity_throwsIllegalValueException() {
         JsonAdaptedLesson lesson = new JsonAdaptedLesson(VALID_LESSON_NAME, INVALID_LESSON_CAPACITY,
-                VALID_LESSON_PRICE, VALID_LESSON_STUDENTS, VALID_LESSON_TIMING);
+                VALID_LESSON_PRICE, VALID_LESSON_STUDENTS, VALID_LESSON_REMARK);
 
         String expectedMessage = Capacity.MESSAGE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, lesson::toModelType);
@@ -67,18 +67,18 @@ public class JsonAdaptedLessonTest {
     @Test
     public void toModelType_invalidPrice_throwsIllegalValueException() {
         JsonAdaptedLesson lesson = new JsonAdaptedLesson(VALID_LESSON_NAME, VALID_LESSON_CAPACITY,
-                INVALID_LESSON_PRICE, VALID_LESSON_STUDENTS, VALID_LESSON_TIMING);
+                INVALID_LESSON_PRICE, VALID_LESSON_STUDENTS, VALID_LESSON_REMARK);
 
         String expectedMessage = Price.MESSAGE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, lesson::toModelType);
     }
 
     @Test
-    public void toModelType_invalidTiming_throwsIllegalValueException() {
+    public void toModelType_invalidRemark_throwsIllegalValueException() {
         JsonAdaptedLesson lesson = new JsonAdaptedLesson(VALID_LESSON_NAME, VALID_LESSON_CAPACITY,
-                VALID_LESSON_PRICE, VALID_LESSON_STUDENTS, INVALID_LESSON_TIMING);
+                VALID_LESSON_PRICE, VALID_LESSON_STUDENTS, INVALID_LESSON_REMARK);
 
-        String expectedMessage = Timing.MESSAGE_CONSTRAINTS;
+        String expectedMessage = Remark.MESSAGE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, lesson::toModelType);
     }
 }

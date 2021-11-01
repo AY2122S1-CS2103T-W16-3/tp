@@ -10,7 +10,7 @@ import tutoraid.logic.parser.exceptions.ParseException;
 import tutoraid.model.lesson.Capacity;
 import tutoraid.model.lesson.LessonName;
 import tutoraid.model.lesson.Price;
-import tutoraid.model.lesson.Timing;
+import tutoraid.model.lesson.Remark;
 import tutoraid.model.student.Name;
 import tutoraid.model.student.ParentName;
 import tutoraid.model.student.Phone;
@@ -177,20 +177,20 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String timing} into a {@code Timing}.
+     * Parses a {@code String remark} into a {@code Remark}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code timing} is invalid.
+     * @throws ParseException if the given {@code remark} is invalid.
      */
-    public static Timing parseTiming(String timing) throws ParseException {
-        requireNonNull(timing);
-        if (timing.equals("")) {
-            return new Timing("");
+    public static Remark parseRemark(String remark) throws ParseException {
+        requireNonNull(remark);
+        if (remark.equals("")) {
+            return new Remark("");
         }
-        String trimmedTiming = timing.trim();
-        if (!Timing.isValidTiming(trimmedTiming)) {
-            throw new ParseException(Timing.MESSAGE_CONSTRAINTS);
+        String trimmedRemark = remark.trim();
+        if (!Remark.isValidRemark(trimmedRemark)) {
+            throw new ParseException(Remark.MESSAGE_CONSTRAINTS);
         }
-        return new Timing(trimmedTiming);
+        return new Remark(trimmedRemark);
     }
 }

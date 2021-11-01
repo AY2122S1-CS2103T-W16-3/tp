@@ -6,8 +6,8 @@ import static tutoraid.logic.commands.CommandTestUtil.VALID_LESSON_NAME_MATHS_TW
 import static tutoraid.logic.commands.CommandTestUtil.VALID_LESSON_NAME_SCIENCE_TWO;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_PRICE_MATHS_TWO;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_PRICE_SCIENCE_TWO;
-import static tutoraid.logic.commands.CommandTestUtil.VALID_TIMING_MATHS_TWO;
-import static tutoraid.logic.commands.CommandTestUtil.VALID_TIMING_SCIENCE_TWO;
+import static tutoraid.logic.commands.CommandTestUtil.VALID_REMARK_MATHS_TWO;
+import static tutoraid.logic.commands.CommandTestUtil.VALID_REMARK_SCIENCE_TWO;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,14 +37,14 @@ public class TypicalLessons {
             .withCapacity("50")
             .withPrice("100")
             .withStudents(new ArrayList<>(Arrays.asList(ALICE)))
-            .withTiming("1000-1200")
+            .withRemark("1000-1200")
             .build();
     public static final Lesson SCIENCE_ONE = new LessonBuilder()
             .withLessonName("Science 1")
             .withCapacity("50")
             .withPrice("125")
             .withStudents(new ArrayList<>(Arrays.asList(ALICE)))
-            .withTiming("1400-1600")
+            .withRemark("1400-1600")
             .build();
 
     // Manually added
@@ -53,14 +53,14 @@ public class TypicalLessons {
             .withCapacity("40")
             .withPrice("110")
             .withStudents(new ArrayList<>(Arrays.asList(ALICE)))
-            .withTiming("1300-1400")
+            .withRemark("1300-1400")
             .build();
     public static final Lesson ENGLISH_TWO = new LessonBuilder()
             .withLessonName("English 2")
             .withCapacity("30")
             .withPrice("130")
             .withStudents(new ArrayList<>(Arrays.asList(ALICE)))
-            .withTiming("1800-1900")
+            .withRemark("1800-1900")
             .build();
 
     // Manually added - Lesson's details found in {@code CommandTestUtil}
@@ -68,14 +68,14 @@ public class TypicalLessons {
             .withLessonName(VALID_LESSON_NAME_MATHS_TWO)
             .withCapacity(VALID_CAPACITY_MATHS_TWO)
             .withPrice(VALID_PRICE_MATHS_TWO)
-            .withTiming(VALID_TIMING_MATHS_TWO)
+            .withRemark(VALID_REMARK_MATHS_TWO)
             .withStudents(new ArrayList<>())
             .build();
     public static final Lesson SCIENCE_TWO = new LessonBuilder()
             .withLessonName(VALID_LESSON_NAME_SCIENCE_TWO)
             .withCapacity(VALID_CAPACITY_SCIENCE_TWO)
             .withPrice(VALID_PRICE_SCIENCE_TWO)
-            .withTiming(VALID_TIMING_SCIENCE_TWO)
+            .withRemark(VALID_REMARK_SCIENCE_TWO)
             .withStudents(new ArrayList<>())
             .build();
 
@@ -83,7 +83,7 @@ public class TypicalLessons {
             .withLessonName(VALID_LESSON_NAME_MATHS_TWO)
             .withCapacity(VALID_CAPACITY_MATHS_TWO)
             .withPrice(VALID_PRICE_MATHS_TWO)
-            .withTiming(VALID_TIMING_MATHS_TWO)
+            .withRemark(VALID_REMARK_MATHS_TWO)
             .build();
 
     private TypicalLessons() {

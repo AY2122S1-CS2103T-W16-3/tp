@@ -53,8 +53,8 @@ public class CommandTestUtil {
     public static final String VALID_PRICE_MATHS_TWO = "130";
     public static final String VALID_PRICE_SCIENCE_TWO = "145";
 
-    public static final String VALID_TIMING_MATHS_TWO = "1000-1200";
-    public static final String VALID_TIMING_SCIENCE_TWO = "1400-1600";
+    public static final String VALID_REMARK_MATHS_TWO = "1000-1200";
+    public static final String VALID_REMARK_SCIENCE_TWO = "1400-1600";
 
     public static final ArrayList<Student> VALID_STUDENTS_MATHS_TWO = new ArrayList<>(List.of(ALICE));
     public static final ArrayList<Student> VALID_STUDENTS_SCIENCE_TWO = new ArrayList<>(List.of(ALICE));
@@ -80,10 +80,10 @@ public class CommandTestUtil {
             " " + CliSyntax.PREFIX_LESSON_PRICE + VALID_PRICE_MATHS_TWO;
     public static final String PRICE_DESC_SCIENCE =
             " " + CliSyntax.PREFIX_LESSON_PRICE + VALID_PRICE_SCIENCE_TWO;
-    public static final String TIMING_DESC_MATH =
-            " " + CliSyntax.PREFIX_LESSON_TIMING + VALID_TIMING_MATHS_TWO;
-    public static final String TIMING_DESC_SCIENCE =
-            " " + CliSyntax.PREFIX_LESSON_TIMING + VALID_TIMING_SCIENCE_TWO;
+    public static final String REMARK_DESC_MATH =
+            " " + CliSyntax.PREFIX_LESSON_REMARK + VALID_REMARK_MATHS_TWO;
+    public static final String REMARK_DESC_SCIENCE =
+            " " + CliSyntax.PREFIX_LESSON_REMARK + VALID_REMARK_SCIENCE_TWO;
 
     public static final String INVALID_STUDENT_NAME_DESC =
             " " + CliSyntax.PREFIX_STUDENT_NAME + "James&"; // '&' not allowed in names
@@ -100,8 +100,8 @@ public class CommandTestUtil {
             " " + CliSyntax.PREFIX_LESSON_CAPACITY + "911.1"; // must be integer
     public static final String INVALID_PRICE_DESC =
             " " + CliSyntax.PREFIX_LESSON_PRICE + "911.123"; // too many decimal places
-    public static final String INVALID_TIMING_DESC =
-            " " + CliSyntax.PREFIX_LESSON_TIMING + "&"; // only alphanumeric chars
+    public static final String INVALID_REMARK_DESC =
+            " " + CliSyntax.PREFIX_LESSON_REMARK + "&"; // only alphanumeric chars
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
@@ -128,13 +128,13 @@ public class CommandTestUtil {
                 .withLessonName(VALID_LESSON_NAME_MATHS_TWO)
                 .withCapacity(VALID_CAPACITY_MATHS_TWO)
                 .withPrice(VALID_PRICE_MATHS_TWO)
-                .withTiming(VALID_TIMING_MATHS_TWO)
+                .withRemark(VALID_REMARK_MATHS_TWO)
                 .build();
         DESC_SCIENCE = new EditLessonDescriptorBuilder()
                 .withLessonName(VALID_LESSON_NAME_SCIENCE_TWO)
                 .withCapacity(VALID_CAPACITY_SCIENCE_TWO)
                 .withPrice(VALID_PRICE_SCIENCE_TWO)
-                .withTiming(VALID_TIMING_SCIENCE_TWO)
+                .withRemark(VALID_REMARK_SCIENCE_TWO)
                 .build();
     }
 

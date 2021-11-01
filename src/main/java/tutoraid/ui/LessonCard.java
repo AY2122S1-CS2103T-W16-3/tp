@@ -13,7 +13,7 @@ public class LessonCard extends Card<Lesson> {
     private static final String FXML = "LessonListCard.fxml";
 
     private static final String LABEL_LESSON_NAME = "";
-    private static final String LABEL_TIMING = "Timing";
+    private static final String LABEL_REMARK = "Remark";
     private static final String LABEL_PRICE = "Price";
     private static final String LABEL_CAPACITY = "Capacity";
     private static final String LABEL_STUDENTS = "Students";
@@ -33,7 +33,7 @@ public class LessonCard extends Card<Lesson> {
     @FXML
     private Label lessonName;
     @FXML
-    private Label timing;
+    private Label remark;
     @FXML
     private Label price;
     @FXML
@@ -48,7 +48,7 @@ public class LessonCard extends Card<Lesson> {
         super(FXML, lesson, displayedIndex);
         id.setText(displayedIndex + ". ");
         lessonName.setText(formatCardLabel(LABEL_LESSON_NAME, lesson.getLessonName().toString()));
-        timing.setText(formatCardLabel(LABEL_TIMING, lesson.getTiming().toString()));
+        remark.setText(formatCardLabel(LABEL_REMARK, lesson.getRemark().toString()));
         price.setText(formatCardLabel(LABEL_PRICE, lesson.getPrice().toString()));
         capacity.setText(formatCardLabel(LABEL_CAPACITY, lesson.getCapacity().toString()));
         students.setText(formatCardLabel(LABEL_STUDENTS, lesson.getStudents().toString()));

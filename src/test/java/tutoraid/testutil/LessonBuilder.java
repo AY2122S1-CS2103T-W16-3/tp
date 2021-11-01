@@ -6,8 +6,8 @@ import tutoraid.model.lesson.Capacity;
 import tutoraid.model.lesson.Lesson;
 import tutoraid.model.lesson.LessonName;
 import tutoraid.model.lesson.Price;
+import tutoraid.model.lesson.Remark;
 import tutoraid.model.lesson.Students;
-import tutoraid.model.lesson.Timing;
 import tutoraid.model.student.Student;
 
 /**
@@ -19,13 +19,13 @@ public class LessonBuilder {
     public static final String DEFAULT_LESSON_CAPACITY = "50";
     public static final String DEFAULT_LESSON_PRICE = "100";
     public static final ArrayList<Student> DEFAULT_LESSON_STUDENTS = new ArrayList<Student>();
-    public static final String DEFAULT_LESSON_TIMING = "1000-1200";
+    public static final String DEFAULT_LESSON_REMARK = "1000-1200";
 
     private LessonName lessonName;
     private Capacity capacity;
     private Price price;
     private Students students;
-    private Timing timing;
+    private Remark remark;
 
     /**
      * Creates a {@code LessonBuilder} with the default details.
@@ -35,7 +35,7 @@ public class LessonBuilder {
         capacity = new Capacity(DEFAULT_LESSON_CAPACITY);
         price = new Price(DEFAULT_LESSON_PRICE);
         students = new Students(DEFAULT_LESSON_STUDENTS);
-        timing = new Timing(DEFAULT_LESSON_TIMING);
+        remark = new Remark(DEFAULT_LESSON_REMARK);
     }
 
     /**
@@ -46,7 +46,7 @@ public class LessonBuilder {
         capacity = lessonToCopy.getCapacity();
         price = lessonToCopy.getPrice();
         students = lessonToCopy.getStudents();
-        timing = lessonToCopy.getTiming();
+        remark = lessonToCopy.getRemark();
     }
 
     /**
@@ -82,14 +82,14 @@ public class LessonBuilder {
     }
 
     /**
-     * Sets the {@code Timing} of the {@code Lesson} that we are building.
+     * Sets the {@code Remark} of the {@code Lesson} that we are building.
      */
-    public LessonBuilder withTiming(String timing) {
-        this.timing = new Timing(timing);
+    public LessonBuilder withRemark(String remark) {
+        this.remark = new Remark(remark);
         return this;
     }
 
     public Lesson build() {
-        return new Lesson(lessonName, capacity, price, students, timing);
+        return new Lesson(lessonName, capacity, price, students, remark);
     }
 }

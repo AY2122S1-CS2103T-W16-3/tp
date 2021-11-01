@@ -3,7 +3,7 @@ package tutoraid.testutil;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_CAPACITY;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_NAME;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_PRICE;
-import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_TIMING;
+import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_REMARK;
 
 import tutoraid.logic.commands.AddLessonCommand;
 import tutoraid.logic.commands.EditLessonCommand;
@@ -41,6 +41,6 @@ public class LessonUtil {
         return PREFIX_LESSON_NAME + lesson.getLessonName().lessonName + " "
                 + PREFIX_LESSON_CAPACITY + lesson.getCapacity().capacity + " "
                 + PREFIX_LESSON_PRICE + lesson.getPrice().price + " "
-                + PREFIX_LESSON_TIMING + lesson.getTiming().timing + " ";
+                + PREFIX_LESSON_REMARK + lesson.getRemark().remark + " ";
     }
 }

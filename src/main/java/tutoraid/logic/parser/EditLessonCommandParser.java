@@ -6,7 +6,7 @@ import static tutoraid.logic.commands.EditLessonCommand.EditLessonDescriptor;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_CAPACITY;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_NAME;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_PRICE;
-import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_TIMING;
+import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_REMARK;
 
 import tutoraid.commons.core.index.Index;
 import tutoraid.logic.commands.EditLessonCommand;
@@ -27,7 +27,7 @@ public class EditLessonCommandParser implements Parser<EditLessonCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(
-                        args, PREFIX_LESSON_NAME, PREFIX_LESSON_PRICE, PREFIX_LESSON_TIMING, PREFIX_LESSON_CAPACITY);
+                        args, PREFIX_LESSON_NAME, PREFIX_LESSON_PRICE, PREFIX_LESSON_REMARK, PREFIX_LESSON_CAPACITY);
         Index index;
 
         try {
@@ -46,9 +46,9 @@ public class EditLessonCommandParser implements Parser<EditLessonCommand> {
             editLessonDescriptor.setPrice(
                     ParserUtil.parsePrice(argMultimap.getValue(PREFIX_LESSON_PRICE).get()));
         }
-        if (argMultimap.getValue(PREFIX_LESSON_TIMING).isPresent()) {
-            editLessonDescriptor.setTiming(
-                    ParserUtil.parseTiming(argMultimap.getValue(PREFIX_LESSON_TIMING).get()));
+        if (argMultimap.getValue(PREFIX_LESSON_REMARK).isPresent()) {
+            editLessonDescriptor.setRemark(
+                    ParserUtil.parseRemark(argMultimap.getValue(PREFIX_LESSON_REMARK).get()));
         }
         if (argMultimap.getValue(PREFIX_LESSON_CAPACITY).isPresent()) {
             editLessonDescriptor.setCapacity(

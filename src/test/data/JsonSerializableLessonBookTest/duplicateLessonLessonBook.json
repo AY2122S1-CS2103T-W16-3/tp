@@ -12,7 +12,7 @@
       "hasPaid" : false,
       "lessons" : []
     } ],
-    "timing" : "1000-1200"
+    "remark" : "1000-1200"
   }, {
     "lessonName" : "Maths 1",
     "capacity" : "50",
@@ -26,6 +26,6 @@
       "hasPaid" : false,
       "lessons" : []
     } ],
-    "timing" : "1000-1200"
+    "remark" : "1000-1200"
   } ]
 }

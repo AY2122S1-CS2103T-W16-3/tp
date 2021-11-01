@@ -11,8 +11,8 @@ import tutoraid.model.lesson.Capacity;
 import tutoraid.model.lesson.Lesson;
 import tutoraid.model.lesson.LessonName;
 import tutoraid.model.lesson.Price;
+import tutoraid.model.lesson.Remark;
 import tutoraid.model.lesson.Students;
-import tutoraid.model.lesson.Timing;
 import tutoraid.model.student.Lessons;
 import tutoraid.model.student.ParentName;
 import tutoraid.model.student.PaymentStatus;
@@ -76,7 +76,7 @@ public class SampleDataUtil {
         return new Lesson[] {
             new Lesson(new LessonName("Maths 1"), new Capacity("50"),
                     new Price("100"), new Students(sampleStudentInLesson),
-                    new Timing("1000-1200"))
+                    new Remark("1000-1200"))
         };
     }
 

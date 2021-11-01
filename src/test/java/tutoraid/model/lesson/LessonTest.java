@@ -1,12 +1,11 @@
 package tutoraid.model.lesson;
 
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_CAPACITY_MATHS_TWO;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_LESSON_NAME_MATHS_TWO;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_PRICE_MATHS_TWO;
-import static tutoraid.logic.commands.CommandTestUtil.VALID_TIMING_SCIENCE_TWO;
+import static tutoraid.logic.commands.CommandTestUtil.VALID_REMARK_SCIENCE_TWO;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +29,7 @@ public class LessonTest {
                 .withCapacity("51")
                 .withPrice("101")
                 .withStudents(new ArrayList<>(Arrays.asList()))
-                .withTiming("1001-1201")
+                .withRemark("1001-1201")
                 .build();;
         assertTrue(TypicalLessons.MATHS_ONE.isSameLesson(editedMathsOne));
 
@@ -81,8 +80,8 @@ public class LessonTest {
         editedMathsOne = new LessonBuilder(TypicalLessons.MATHS_ONE).withCapacity(VALID_CAPACITY_MATHS_TWO).build();
         assertFalse(TypicalLessons.MATHS_ONE.equals(editedMathsOne));
 
-        // different timing -> returns false
-        editedMathsOne = new LessonBuilder(TypicalLessons.MATHS_ONE).withTiming(VALID_TIMING_SCIENCE_TWO).build();
+        // different remark -> returns false
+        editedMathsOne = new LessonBuilder(TypicalLessons.MATHS_ONE).withRemark(VALID_REMARK_SCIENCE_TWO).build();
         assertFalse(TypicalLessons.MATHS_ONE.equals(editedMathsOne));
     }
 }

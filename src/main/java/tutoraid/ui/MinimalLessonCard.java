@@ -13,7 +13,7 @@ public class MinimalLessonCard extends Card<Lesson> {
     private static final String FXML = "MinimalLessonListCard.fxml";
 
     private static final String LABEL_LESSON_NAME = "Lesson";
-    private static final String LABEL_TIMING = "Timing";
+    private static final String LABEL_REMARK = "Remark";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -30,7 +30,7 @@ public class MinimalLessonCard extends Card<Lesson> {
     @FXML
     private Label lessonName;
     @FXML
-    private Label timing;
+    private Label remark;
 
 
     /**
@@ -40,6 +40,6 @@ public class MinimalLessonCard extends Card<Lesson> {
         super(FXML, lesson, displayedIndex);
         id.setText(displayedIndex + ". ");
         lessonName.setText(formatCardLabel(LABEL_LESSON_NAME, lesson.getLessonName().toString()));
-        timing.setText(formatCardLabel(LABEL_TIMING, lesson.getTiming().toString()));
+        remark.setText(formatCardLabel(LABEL_REMARK, lesson.getRemark().toString()));
     }
 }

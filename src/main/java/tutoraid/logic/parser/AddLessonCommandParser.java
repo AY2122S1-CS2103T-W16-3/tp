@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_CAPACITY;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_NAME;
 import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_PRICE;
-import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_TIMING;
+import static tutoraid.logic.parser.CliSyntax.PREFIX_LESSON_REMARK;
 
 import java.util.ArrayList;
 
@@ -15,8 +15,8 @@ import tutoraid.model.lesson.Capacity;
 import tutoraid.model.lesson.Lesson;
 import tutoraid.model.lesson.LessonName;
 import tutoraid.model.lesson.Price;
+import tutoraid.model.lesson.Remark;
 import tutoraid.model.lesson.Students;
-import tutoraid.model.lesson.Timing;
 import tutoraid.model.student.Student;
 
 /**
@@ -34,9 +34,9 @@ public class AddLessonCommandParser implements Parser<AddLessonCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_LESSON_NAME, PREFIX_LESSON_CAPACITY,
-                        PREFIX_LESSON_PRICE, PREFIX_LESSON_TIMING);
+                        PREFIX_LESSON_PRICE, PREFIX_LESSON_REMARK);
 
-        // Lesson name is a required field (Lesson capacity, price and timing are optional fields)
+        // Lesson name is a required field (Lesson capacity, price and remark are optional fields)
         if (argMultimap.getValue(PREFIX_LESSON_NAME).isEmpty() || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(
                     Messages.MESSAGE_INVALID_COMMAND_FORMAT, AddLessonCommand.MESSAGE_USAGE));
@@ -48,11 +48,11 @@ public class AddLessonCommandParser implements Parser<AddLessonCommand> {
                 argMultimap.getValue(PREFIX_LESSON_CAPACITY).orElse(""));
         Price price = ParserUtil.parsePrice(
                 argMultimap.getValue(PREFIX_LESSON_PRICE).orElse(""));
-        Timing timing = ParserUtil.parseTiming(
-                argMultimap.getValue(PREFIX_LESSON_TIMING).orElse(""));
+        Remark remark = ParserUtil.parseRemark(
+                argMultimap.getValue(PREFIX_LESSON_REMARK).orElse(""));
         Students students = new Students(new ArrayList<Student>());
 
-        Lesson lesson = new Lesson(lessonName, capacity, price, students, timing);
+        Lesson lesson = new Lesson(lessonName, capacity, price, students, remark);
         return new AddLessonCommand(lesson);
     }
 }

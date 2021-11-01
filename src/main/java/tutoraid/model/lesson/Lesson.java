@@ -9,7 +9,7 @@ import tutoraid.model.student.Student;
 
 /**
  * Represents a Lesson in the TutorAid.
- * Guarantees: details are present and not null, field values are validated, immutable.
+ * Guarantees: Lesson details are present and not null, field values are validated, immutable.
  */
 public class Lesson {
 
@@ -20,18 +20,18 @@ public class Lesson {
     private final Students students;
     private final Capacity capacity;
     private final Price price;
-    private final Timing timing;
+    private final Remark remark;
 
     /**
      * Every field must be present and not null.
      */
-    public Lesson(LessonName lessonName, Capacity capacity, Price price, Students students, Timing timing) {
-        requireAllNonNull(lessonName, capacity, price, students, timing);
+    public Lesson(LessonName lessonName, Capacity capacity, Price price, Students students, Remark remark) {
+        requireAllNonNull(lessonName, capacity, price, students, remark);
         this.lessonName = lessonName;
         this.capacity = capacity;
         this.price = price;
         this.students = students;
-        this.timing = timing;
+        this.remark = remark;
     }
 
     /**
@@ -65,8 +65,8 @@ public class Lesson {
         return students;
     }
 
-    public Timing getTiming() {
-        return timing;
+    public Remark getRemark() {
+        return remark;
     }
 
     /**
@@ -148,13 +148,13 @@ public class Lesson {
                 && otherLesson.getCapacity().equals(getCapacity())
                 && otherLesson.getPrice().equals(getPrice())
                 && otherLesson.getStudents().equals(getStudents())
-                && otherLesson.getTiming().equals(getTiming());
+                && otherLesson.getRemark().equals(getRemark());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(lessonName, timing, capacity, price, students);
+        return Objects.hash(lessonName, remark, capacity, price, students);
     }
 
     @Override
@@ -168,9 +168,9 @@ public class Lesson {
                     .append(getLessonName());
         }
 
-        if (timing != null) {
-            builder.append("; Lesson's timing: ")
-                    .append(getTiming());
+        if (remark != null) {
+            builder.append("; Lesson's remark: ")
+                    .append(getRemark());
 
         }
 

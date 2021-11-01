@@ -11,7 +11,7 @@
       "progress" : "No Progress",
       "hasPaid" : false
     } ],
-    "timing" : "1000-1200"
+    "remark" : "1000-1200"
   }, {
     "lessonName" : "Lesson With Invalid Capacity Field",
     "capacity" : "fifty",
@@ -24,6 +24,6 @@
       "progress" : "No Progress",
       "hasPaid" : false
     } ],
-    "timing" : "1000-1200"
+    "remark" : "1000-1200"
   } ]
 }

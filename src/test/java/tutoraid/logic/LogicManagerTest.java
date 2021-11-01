@@ -8,9 +8,9 @@ import static tutoraid.logic.commands.CommandTestUtil.LESSON_NAME_DESC_MATH;
 import static tutoraid.logic.commands.CommandTestUtil.PARENT_NAME_DESC_AMY;
 import static tutoraid.logic.commands.CommandTestUtil.PARENT_PHONE_DESC_AMY;
 import static tutoraid.logic.commands.CommandTestUtil.PRICE_DESC_MATH;
+import static tutoraid.logic.commands.CommandTestUtil.REMARK_DESC_MATH;
 import static tutoraid.logic.commands.CommandTestUtil.STUDENT_NAME_DESC_AMY;
 import static tutoraid.logic.commands.CommandTestUtil.STUDENT_PHONE_DESC_AMY;
-import static tutoraid.logic.commands.CommandTestUtil.TIMING_DESC_MATH;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_ADD_LESSON_COMMAND;
 import static tutoraid.logic.commands.CommandTestUtil.VALID_ADD_STUDENT_COMMAND;
 import static tutoraid.testutil.Assert.assertThrows;
@@ -117,7 +117,7 @@ public class LogicManagerTest {
 
         // Execute add lesson command
         String addLessonCommand = VALID_ADD_LESSON_COMMAND + LESSON_NAME_DESC_MATH + CAPACITY_DESC_MATH
-                + PRICE_DESC_MATH + TIMING_DESC_MATH;
+                + PRICE_DESC_MATH + REMARK_DESC_MATH;
         Lesson expectedLesson = new LessonBuilder(MATHS_TWO).build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addLesson(expectedLesson);

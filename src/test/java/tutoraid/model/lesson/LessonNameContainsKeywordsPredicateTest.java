@@ -72,9 +72,9 @@ public class LessonNameContainsKeywordsPredicateTest {
         predicate = new LessonNameContainsKeywordsPredicate(Arrays.asList("H2", "Physics"));
         assertFalse(predicate.test(new LessonBuilder().withLessonName("H3 Biology").build()));
 
-        // Keywords match price, capacity and timing, but does not match Lesson name
+        // Keywords match price, capacity and remark, but does not match Lesson name
         predicate = new LessonNameContainsKeywordsPredicate(Arrays.asList("20", "10", "Monday", "8am-10am"));
         assertFalse(predicate.test(new LessonBuilder().withLessonName("English").withPrice("20")
-                .withCapacity("10").withTiming("Monday 8am-10am").build()));
+                .withCapacity("10").withRemark("Monday 8am-10am").build()));
     }
 }
