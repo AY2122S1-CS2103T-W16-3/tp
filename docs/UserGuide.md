@@ -194,8 +194,9 @@ Now that you've added your first student (and perhaps a few others too), let's a
 
 1. Type `add -l n/History 1` into the command box and press enter.
 
-    ![](images/tutorialAddLesson1.png)
+![](images/tutorialAddLesson1.png)
 
+{:start="2"}
 2. Observe how History 1 appears in the Lesson Panel.
 3. We've added the lesson successfully, but we can continue by adding more details, such as its timing (10AM - 11AM on Mondays), price ($125.90) and capacity (10). Assuming that History 1 is the only lesson in your Lesson Panel, type the command `edit -l 1 t/10AM - 11AM on Mondays c/10`. Press Enter on your keyboard.
 4. Observe how the capacity and timing now show what you have requested.
