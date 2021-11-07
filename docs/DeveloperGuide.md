@@ -243,6 +243,7 @@ its execution and `ParseException` will be thrown.</div>
 Below is the sequence diagram that depicts the parsing of the `add -p` command:
 ![ParseAddProgress](images/ParseAddProgressSequenceDiagram.png)
 
+{:start="5"}
 5. `LogicManager#execute()` then calls upon `AddProgressCommand#execute()`. It communicates with the `Model` to get the
    index-specified `Student` instance.
 
