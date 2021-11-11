@@ -123,7 +123,7 @@ In this section, we will use this as an example to illustrate the various compon
 
 #### Command Word
 {:.no_toc}
-The Command Word is how you can tell TutorAid what kind of operation you want to do.You can find these Command Words [here](#8-command-summary). All commands must contain a Command Word.
+The Command Word is how you can tell TutorAid what kind of operation you want to do. You can find these Command Words [here](#8-command-summary). All commands must contain a Command Word.
 
 In the example above, `edit` tells TutorAid to perform an _edit operation_.
 
@@ -308,7 +308,7 @@ note of it so that you can provide him with extra practice. To do so, you can ea
 
 1. Key in `add -p 1 Requires extra practice for Vectors` into the Command Box and press ENTER. 
 
-    > :bulb: The `1` in the command above refers to the index number of Alex Yeoh in the Student Panel. For more information, you can refer to the detailed documentation for the ['Add a Progress to a Student' command](#adding-progress-for-a-student-add--p).
+    > :bulb: The `1` in the command above refers to the index number of Alex Yeoh in the Student Panel. For more information, you can refer to the detailed documentation for the ['Add Progress to a Student' command](#adding-progress-for-a-student-add--p).
    
 1. Notice that Alex's details reflected in the Student Panel have been updated to display the progress entry you just added, as seen here:
 
