@@ -173,13 +173,6 @@ add -sl s/STUDENT_INDEX... n/LESSON_INDEX...
 | You can supply the parameters for all commands in any order. | - | `add -s sn/John Doe sp/92635282` is the same as `add -s sp/92635282 sn/John Doe`. |
 | If a parameter is expected only once in the command but you specify it multiple times, only the last occurrence of the parameter will be taken. | - | If you key in `add -s sn/John Doe sp/92635282 sp/81352846`, TutorAid will simply interpret as `add -s sn/John Doe sp/81352846`. |
 | If you include extraneous parameters for commands that do not take in parameters, TutorAid will simply ignore the parameters. | - | If you key in `help 123`, TutorAid will interpret it as just `help` as this command does not take in any parameters. |
-* Parameters can be in any order. 
-  e.g. `add -sl s/STUDENT_INDEX... n/LESSON_INDEX...` is the same as `add -sl n/LESSON_INDEX... s/STUDENT_INDEX...`
-* If a parameter is expected only once in the command. If you specify it multiple times, only the last occurrence of the parameter will be taken.
-* `...` signals that multiple arguments can be supplied to this parameter, with each argument being separated by a space (` `). At least 1 argument must be provided for such parameters.
-  e.g. If the format of a command has `s/STUDENT_INDEX...` then both `s/1 2 3` and `s/1` are acceptable inputs, but not `s/ `.
-* If you include extraneous parameters for commands that do not take in parameters, TutorAid will simply ignore the parameters.
-  e.g. If you key in `help 123`, TutorAid will interpret it as just `help` as this command does not take in any parameters.
 
 ***
 
