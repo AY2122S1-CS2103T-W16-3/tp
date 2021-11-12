@@ -153,7 +153,7 @@ A Parameter can be further divided into 2 components:
   In the example above, `Matthew Judge` is the value for the prefix _student name_.
 
 Putting together both the prefix and the argument, `sn/Matthew Judge` informs TutorAid that the name of the 3rd student in the Student Panel should be updated to _Matthew Judge_. Similarly, `sp/91263740` tells TutorAid that the phone number of the 3rd student in the Student Panel should be updated to _91263740_.
-<div style="page-break-after: always;"></div>
+
 ### **2.3.1 Command Syntax in this Guide**
 
 In this guide, the syntax/format of a command is shown as such:
@@ -659,7 +659,7 @@ TutorAid student data are saved as a JSON file `[JAR file location]/data/tutorAi
 **A**: TutorAid only supports storing up to 10 progress entries so that it is easier for tutors to manage and view all of their entries for each student.
 
 ***
-<div style="page-break-after: always;"></div>
+
 # 8. Command Summary
 
 ### **8.1 Student Commands**
@@ -674,6 +674,8 @@ Action | Format and Examples
 **[Find student](#finding-students-by-name-find--s)** | `find -s KEYWORD...`<br>e.g., `find -s roy`
 **[Add Progress](#adding-progress-for-a-student-add--p)** | `add -p STUDENT_INDEX PROGRESS` <br> e.g., `add -p 2 completed homework`
 **[Delete Progress](#deleting-progress-from-a-student-del--p)** | `del -p STUDENT_INDEX` <br> e.g., `del -p 2`
+
+<div style="page-break-after: always;"></div>
 
 ### **8.2 Lesson Commands**
 
@@ -694,6 +696,8 @@ Action | Format and Examples
 **[List](#listing-all-students-and-lessons-list)** | `list [-a]`<br>e.g., `list`, `list -a`
 **[Add student(s) to lesson(s)](#adding-students-to-lessons-add--sl)** | `add -sl s/STUDENT_INDEX... l/LESSON_INDEX...`<br>e.g.,`add -sl s/1 2 3 l/1 2`
 **[Delete student(s) from lesson(s)](#deleting-students-from-lessons-del--sl)** | `del -sl s/STUDENT_INDEX... l/LESSON_INDEX...`<br>e.g.,`del -sl s/2 3 l/1 2 3`
+
+<div style="page-break-after: always;"></div>
 
 ### **8.4 Other Commands**
 
