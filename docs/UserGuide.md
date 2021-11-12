@@ -165,6 +165,7 @@ add -sl s/STUDENT_INDEX... n/LESSON_INDEX...
 ```
 
 * Words in `UPPER_CASE` are the parameters that you need to supply.
+
 | Syntax | Meaning | Example |
 | ------ | ------- | ------- |
 | Words in `UPPER_CASE` | You need to supply arguments for these parameters. | In the `edit -s` command above, it is compulsory to pass in an argument for `INDEX_NUMBER`.  |     
