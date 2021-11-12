@@ -321,6 +321,8 @@ Now, the next time you open TutorAid, you will be able to see Alex's latest prog
 
 > :bulb: You will be able to add up to **10** such progress entries for each student. When you attempt to add the 11th entry, your first entry will be replaced by your new entry. <br>
 
+<div style="page-break-after: always;"></div>
+
 ### **4.5: Deleting a student**
 
 Lastly, imagine that your student, Alex Yeoh, has graduated from secondary school and wishes to discontinue his lessons. Since he is no longer your student, you would like to remove his details from TutorAid. 
@@ -379,8 +381,6 @@ Examples:
 
 > :bulb: TutorAid does not allow you to add duplicate students. A student is considered as a duplicate if he/she has the same name (case-insensitive) as an existing student in the application.
 > For example, TutorAid will consider 'John Doe' and 'john doe' as the same student, but not 'John Doe' and 'John'.
-
-<div style="page-break-after: always;"></div>
 
 ### Deleting a student: `del -s`
 {:.no_toc}
