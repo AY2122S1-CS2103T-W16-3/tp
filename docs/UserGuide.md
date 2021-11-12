@@ -638,6 +638,7 @@ TutorAid student data are saved as a JSON file `[JAR file location]/data/tutorAi
 
 * **CLI**: CLI (also known as a _Command Line Interface_) refers to a form of interface that processes a user's input in the form of text.
 * **GUI**: GUI (also known as a _Graphical User Interface_) refers to a form of user interface that allows users to interact with the application through graphical icons, such as buttons.
+* **JSON**: JSON (also known as _JavaScript Object Notation_) is a file format for storing data in fields. TutorAid uses JSON files to store data for students and lessons, which you can [manually edit](#editing-the-data-file) if you choose.
 * **Progress**: Refers to any remark you may want to add for a specific student, such as their performance in their lesson or their homework progression.
 
 ***
