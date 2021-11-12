@@ -37,7 +37,7 @@ We hope that TutorAid will add more organisation to your tutoring career :blush:
 Just downloaded TutorAid? Check out the [About](#2-about) and [Quick Start](#3-quick-start) sections to see how you can get started!
 
 ***
-
+<div style="page-break-after: always;"></div>
 # 2. About
 
 This section contains information and terms that may help you to understand the user guide.
@@ -153,7 +153,7 @@ A Parameter can be further divided into 2 components:
   In the example above, `Matthew Judge` is the value for the prefix _student name_.
 
 Putting together both the prefix and the argument, `sn/Matthew Judge` informs TutorAid that the name of the 3rd student in the Student Panel should be updated to _Matthew Judge_. Similarly, `sp/91263740` tells TutorAid that the phone number of the 3rd student in the Student Panel should be updated to _91263740_.
-
+<div style="page-break-after: always;"></div>
 ### **2.3.1 Command Syntax in this Guide**
 
 In this guide, the syntax/format of a command is shown as such:
@@ -176,7 +176,7 @@ add -sl s/STUDENT_INDEX... n/LESSON_INDEX...
 | If you include extraneous parameters for commands that do not take in parameters, TutorAid will simply ignore the parameters. | - | If you key in `help 123`, TutorAid will interpret it as just `help` as this command does not take in any parameters. |
 
 ***
-
+<div style="page-break-after: always;"></div>
 # 3. Quick Start
 
 1. Ensure that you have Java `11` or above installed on your computer.
@@ -211,7 +211,7 @@ add -sl s/STUDENT_INDEX... n/LESSON_INDEX...
 6. After completing the tutorial, you may refer to the [Features](#5-features) section below to see all the commands available in TutorAid.
 
 ***
-
+<div style="page-break-after: always;"></div>
 # 4. Beginner's Tutorial
 
 Welcome to TutorAid's beginner's tutorial! Here, you will learn how you can use a few of our commands to manage the details of your students and lessons on a day-to-day basis :smile:
@@ -350,7 +350,7 @@ You can also learn and experiment with a few other TutorAid commands that we hav
 All the commands available in TutorAid are listed below in the [Features](#5-features) section for your reference. Happy Learning! :smile:
 
 ***
-
+<div style="page-break-after: always;"></div>
 # 5. Features
 
 If you are new to TutorAid, we recommend that you complete the [Beginner's Tutorial](#4-beginners-tutorial) to get started with TutorAid. This section lists all the available commands in TutorAid for your reference. 
@@ -634,7 +634,7 @@ TutorAid student data are saved as a JSON file `[JAR file location]/data/tutorAi
 > :exclamation: If your changes to a data file make its format invalid, TutorAid will discard all its data and start with all empty data files in the next run. Thus, it is recommended to only edit the JSON files if  necessary and instead use the available TutorAid commands to make the required changes.
 
 ***
-
+<div style="page-break-after: always;"></div>
 # 6. Glossary
 
 * **CLI**: CLI (also known as a _Command Line Interface_) refers to a form of interface that processes a user's input in the form of text.
@@ -659,7 +659,7 @@ TutorAid student data are saved as a JSON file `[JAR file location]/data/tutorAi
 **A**: TutorAid only supports storing up to 10 progress entries so that it is easier for tutors to manage and view all of their entries for each student.
 
 ***
-
+<div style="page-break-after: always;"></div>
 # 8. Command Summary
 
 ### **8.1 Student Commands**
