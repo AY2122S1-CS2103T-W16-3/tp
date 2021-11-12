@@ -380,6 +380,8 @@ Examples:
 > :bulb: TutorAid does not allow you to add duplicate students. A student is considered as a duplicate if he/she has the same name (case-insensitive) as an existing student in the application.
 > For example, TutorAid will consider 'John Doe' and 'john doe' as the same student, but not 'John Doe' and 'John'.
 
+<div style="page-break-after: always;"></div>
+
 ### Deleting a student: `del -s`
 {:.no_toc}
 If you no longer wish to keep track of one of your students' details, you can use this command to remove the student's details from TutorAid. This allows you to keep your list of students up-to-date in TutorAid at all times.
